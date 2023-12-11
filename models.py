@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
+from flask_migrate import Migrate
 
 db = SQLAlchemy()
 
@@ -15,13 +16,12 @@ class Student(db.Model, UserMixin):
     skills = db.Column(db.String(300))
     campus_st = db.Column(db.String(300))
 
-# Add the following for debugging
-print("Student model created")
-
 class Company(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     company_name = db.Column(db.String(200), nullable=False)
     company_logo = db.Column(db.LargeBinary)
+    username = db.Column(db.String(20), unique=True, nullable=False)
+    password = db.Column(db.String(20), nullable=False)
     desc = db.Column(db.String(500), nullable=False)
     industry = db.Column(db.String(250), nullable=False)
     campus_cp = db.Column(db.String(300), nullable=False)
@@ -30,5 +30,3 @@ class Company(db.Model, UserMixin):
     company_size_min = db.Column(db.Integer)
     company_size_max = db.Column(db.Integer)
 
-# Add the following for debugging
-print("Company model created")
