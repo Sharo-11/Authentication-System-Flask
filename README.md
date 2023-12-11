@@ -1,4 +1,3 @@
-```markdown
 # Authentication-System-Flask
 
 This is a simple authentication system built with Flask, Flask-SQLAlchemy, Flask-Login, and Flask-Migrate. It provides user registration, login, and logout functionalities along with a sample user database.
