@@ -19,6 +19,7 @@ This is a simple authentication system built with Flask, Flask-SQLAlchemy, Flask
 - Flask-SQLAlchemy
 - Flask-Login
 - Flask-Migrate
+- Flask-Forms
 
 ### Installation
 
