@@ -42,6 +42,8 @@ This is a simple authentication system built with Flask, Flask-SQLAlchemy, Flask
    flask db migrate -m "Initial migration"
    flask db upgrade
    ```
+**Note: Database would be created in instances folder**
+
 
 ### Usage
 
