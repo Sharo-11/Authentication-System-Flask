@@ -5,14 +5,18 @@ from models import *
 
 app = Flask(__name__)
 
+# Configuration for SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  # Example URI for SQLite
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Initialize SQLAlchemy extension
+db = SQLAlchemy(app)
+
+with app.app_context():
+    db.create_all()
+
 # Call for the routes
 setup_routes(app)
-
-db = SQLAlchemy(app)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
-app.config["SECRET_KEY"] = "CarrerOtaku17"
-
-db.create_all()
 
 if __name__ == '__main__':
     app.run(debug = True)
