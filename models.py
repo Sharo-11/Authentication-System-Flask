@@ -1,10 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
+from extensions import db, bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, IntegerField, FileField
 from wtforms.validators import InputRequired, Length, ValidationError, Email
-
-db = SQLAlchemy()
 
 class Student(db.Model, UserMixin):
     st_id = db.Column(db.Integer, primary_key = True)
