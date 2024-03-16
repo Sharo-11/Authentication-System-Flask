@@ -8,7 +8,22 @@
 <body>
     <h1>Login Page!</h1>
 
-    <a href="{{url_for("register")}}">Don't have an account? Sign Up here!</a>
+    <br>
+    <br>
+    <form action="{{url_for('login_student')}}" method = "post" style = "display: inline-block; margin: 10px;">
+        <button type = "submit">Login as Student</button>
+    </form>
+
+    <form action="{{url_for('login_company')}}" method = "post" style = "display: inline-block; margin: 10px;">
+        <button type = "submit">Login as Company</button>
+    </form>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <a href="{{url_for('register')}}">Don't have an account? Sign Up here!</a>
 
 </body>
 </html>

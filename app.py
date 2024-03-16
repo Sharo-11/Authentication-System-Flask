@@ -4,10 +4,14 @@ from routes import setup_routes
 from models import *
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'CareerOtaku17'
 
 # Configuration for SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  # Example URI for SQLite
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Configuration for upload folder
+app.config['UPLOAD_FOLDER'] = './Upload'
 
 # Initialize SQLAlchemy extension
 db = SQLAlchemy(app)

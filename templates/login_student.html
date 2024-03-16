@@ -3,23 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register as Student!</title> 
+    <title>Login As Student</title>
 </head>
 <body>
-    <h1>Registeration Page for  Students</h1>
+    <h1>Login Page for Student</h1>
 
     <form method = "POST" action="">
         {{form.hidden_tag()}}
-        {{form.st_id}}
         {{form.st_username}}
         {{form.st_password}}
-        {{form.first_name}}
-        {{form.last_name}}
-        {{form.st_email}}
-        {{form.st_campus}}
-        {{form.st_department}}
-        {{form.st_year}}
-        {{formst_profile_pic}}
         {{form.st_submit}}
     </form>
 
