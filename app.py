@@ -1,7 +1,7 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from extensions import db, bcrypt
 from routes import setup_routes
-from models import *
+from models import Student, Company
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'CareerOtaku17'
@@ -14,13 +14,17 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = './Upload'
 
 # Initialize SQLAlchemy extension
-db = SQLAlchemy(app)
+db.init_app(app)
 
-with app.app_context():
-    db.create_all()
+# Initialize Bcrypt extension
+bcrypt.init_app(app)
 
 # Call for the routes
 setup_routes(app)
 
+# Create all database tables
+with app.app_context():
+    db.create_all()
+    
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=True)
