@@ -18,6 +18,9 @@ class Student(db.Model, UserMixin):
     st_year = db.Column(db.Integer, nullable=False)
     st_profile_pic = db.Column(db.String(100))
 
+    def get_id(self):
+        return f"st_{self.st_id}"
+    
 class Company(db.Model, UserMixin):
     cp_id = db.Column(db.Integer, primary_key=True)
     cp_username = db.Column(db.String(20), nullable = False, unique = True)
@@ -32,6 +35,9 @@ class Company(db.Model, UserMixin):
     cp_size = db.Column(db.String(20), nullable = False)
     cp_campus = db.Column(db.String(40), nullable = False)
     cp_logo = db.Column(db.String(100), nullable = False)
+
+    def get_id(self):
+        return f"cp_{self.cp_id}"
 
 class RegisterStudent(FlaskForm):
     st_id = StringField("Student Id", validators=[InputRequired(), Length(min=2, max=20)], render_kw={"placeholder": "Student Id"})
@@ -50,7 +56,7 @@ class RegisterStudent(FlaskForm):
     def validate_user_st(self, st_username):
         existing_user_st = Company.query.filter_by(st_username = st_username.data).first()
 
-        if existing_user_sy:
+        if existing_user_st:
             raise ValidationError("The username already exist. Please choose a different one.")
 
 class RegisterCompany(FlaskForm):
