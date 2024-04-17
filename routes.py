@@ -70,6 +70,7 @@ def setup_routes(app: Flask):
                 st_password=hashed_password,
                 first_name=form.first_name.data,
                 last_name=form.last_name.data,
+                st_skills=form.st_skills.data,
                 st_bio=form.st_bio.data,
                 st_email=form.st_email.data,
                 st_campus=form.st_campus.data,
