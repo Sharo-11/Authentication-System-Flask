@@ -54,7 +54,7 @@ def setup_routes(app: Flask):
     @app.route("/dashboard")
     @login_required
     def dashboard():
-        return render_template("dashboard.html")
+        return redirect("http://127.0.0.1:5001/student")
 
     @app.route("/register", methods=['GET', 'POST'])
     def register():
